@@ -1,8 +1,12 @@
+# Customer Discovery Intelligence System
+# This system is designed to help businesses prioritize their prospects based on the Ideal Customer Profile (ICP) classification. 
+# It will read the interview data from a text file, calculate the ICP score for each prospect, classify them into tiers, 
+# and provide insights and recommendations for engagement.
 def main():
     print("\nWelcome to Customer Discovery Intelligence System")
     start_menu()
 
-
+#This function will generate a summary of the ranked prospects based on their Ideal Customer Profile (ICP) classification.
 def generate_prospect_summary():
     ranked_prospects = get_ranked_prospects()
     total_prospects = len(ranked_prospects)
