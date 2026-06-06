@@ -15,3 +15,8 @@ Key features include:
 The project was built using core Python concepts including functions, dictionaries, file handling, loops, conditionals, lists, sorting, and modular program design.
 
 The objective was to create a practical decision-support system that helps startups identify and prioritize promising customer opportunities while developing business-oriented programming skills.
+Future Development
+
+- Streamlit UI
+- Industry Attractiveness Analysis
+- Investor Evidence Reporting
