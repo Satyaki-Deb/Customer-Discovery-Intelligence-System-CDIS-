@@ -6,6 +6,33 @@ def main():
     print("\nWelcome to Customer Discovery Intelligence System")
     start_menu()
 
+#This function will read the "interviews.txt" file, extract the relevant data for each interview, and display it in a readable format for the user.
+def display_all_interviews():
+    all_interviews = get_all_interviews()
+    print("\nAll Interview Data")
+    print("----------------------------")
+    interview_number = 1
+    for interview in all_interviews:
+        if interview != "":
+            interview_data = eval(interview)
+            print(f"\nINTERVIEW #{interview_number}")
+            print("----------------------------")
+            print(f"Organization: {interview_data['organization_name']}")
+            print(f"Function: {interview_data['organization_type']}")
+            print(f"Facility Size: {interview_data['facility_size']}")
+            print(f"\nImportance Score: {interview_data['importance_score']}")
+            print(f"Effort Score: {interview_data['effort_score']}")
+            print(f"Cost Concern: {interview_data['cost_concern']}")
+            print(f"Technology Interest: {interview_data['tech_interest']}")
+            print(f"\nPilot Readiness: {interview_data['pilot_readiness']}")
+            print("\nComment:")
+            print(interview_data["comment"])
+            print("----------------------------")
+            interview_number += 1
+    print(f"\nTotal Interviews Conducted: {interview_number - 1}")
+    print("----------------------------")
+
+
 #This function will generate a summary of the ranked prospects based on their Ideal Customer Profile (ICP) classification.
 def generate_prospect_summary():
     ranked_prospects = get_ranked_prospects()
@@ -347,9 +374,10 @@ def start_menu():
             print("\nInterview added successfully!")
         elif choice == "2":
             all_interviews = load_data("interviews.txt")
-            print("\nAll Interviews data are as follows:")
-            print(all_interviews)
-            print(f"\nTotal interviews conducted: {count_interviews('interviews.txt')}")
+            if all_interviews.strip() == "":
+                print("\nNo interviews conducted yet. Please add interviews to view them.")
+            else:
+                display_all_interviews()
         elif choice == "3":
             print("\nMarket Insights and Analysis:")
             print('---------------------------------')
@@ -439,10 +467,10 @@ def add_interview():
     "pilot_readiness": pilot_readiness,
     "comment": comment
 }
-    return customer
-
-
-
+    return customer 
+    
 if __name__ == "__main__":
     main()
-    
+
+
+
